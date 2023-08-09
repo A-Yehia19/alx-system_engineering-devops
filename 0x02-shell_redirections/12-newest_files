@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -lt | awk '{print $9}'
+ls -t -1
