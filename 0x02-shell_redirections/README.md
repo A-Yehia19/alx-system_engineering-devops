@@ -1,1 +1,1 @@
-k
+0x02 Shell Redirections
