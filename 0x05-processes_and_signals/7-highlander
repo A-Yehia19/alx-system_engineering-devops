@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# Task 7: Highlander
 trap 'echo "I am invincible!!!"' 15
 while true
 do

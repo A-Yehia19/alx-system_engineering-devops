@@ -1,3 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# Write a Bash script that kills highlander processes.
 name=$(pgrep -f highlander)
-kill -9 $name
+kill -9 "$name"

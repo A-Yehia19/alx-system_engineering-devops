@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# This script will run forever
 while true
 do
     echo "To infinity and beyond"
