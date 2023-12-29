@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # advanced script
 
-echo $$ >> /var/run/myscript.pid
+sudo bash -c "echo $$ > /var/run/codingschoolscript.pid"
 
 trap "sudo rm -f /var/run/codingschoolscript.pid; exit" SIGQUIT
 trap "sudo rm -f /var/run/codingschoolscript.pid; echo I hate the kill command; exit" SIGTERM
