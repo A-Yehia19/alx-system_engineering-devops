@@ -1,15 +1,11 @@
 #!/usr/bin/env bash
 # advanced script
 
-TERM=15
-INT=2
-QUIT=3
-
 echo $$ >> /var/run/myscript.pid
 
-trap "rm -f /var/run/myscript.pid ; exit" $QUIT
-trap "echo I hate the kill command" $TERM
-trap "echo Y U no love me?!" $INT
+trap "sudo rm -f /var/run/codingschoolscript.pid; exit" SIGQUIT
+trap "sudo rm -f /var/run/codingschoolscript.pid; echo I hate the kill command; exit" SIGTERM
+trap "echo Y U no love me?!" SIGINT
 
 while true
 do
