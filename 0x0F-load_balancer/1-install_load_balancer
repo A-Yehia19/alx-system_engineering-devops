@@ -9,12 +9,11 @@ frontend haproxy_balancer
     
 backend webservers
     balance roundrobin
-    server 509154-web-01 18.207.207.191:80 check
-    server 509154-web-02 34.229.70.147:80 check
+    server 509154-web-01 54.236.44.41 check
+    server 509154-web-02 100.26.239.146 check
 "
 # Update packages
 apt-get -y update
-apt-get -y upgrade
 
 
 # Install HAProxy
