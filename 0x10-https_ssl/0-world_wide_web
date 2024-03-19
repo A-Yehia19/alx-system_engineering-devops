@@ -5,7 +5,8 @@ show_information ()
 {
   domain="$1"
   subdomain="$2"
-  dig "$subdomain.$domain" | awk '/ANSWER SECTION:/{getline; printf "The subdomain %s is a %s record and points to %s\n", var, $4, $5}' var="$subdomain"
+  line=$(dig "$subdomain"."$domain" | grep -A1 'ANSWER SECTION:' | tr '\t' '\n' | tail -2 | tr '\n' ' ')
+  echo "$subdomain $line" | awk '{print "The subdomain " $1 " is a " $2 " record and points to " $3}'
 }
 
 for subdomain in "www" "lb-01" "web-01" "web-02"
