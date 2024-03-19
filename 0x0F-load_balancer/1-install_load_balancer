@@ -14,7 +14,8 @@ backend webservers
 "
 # Update packages
 apt-get -y update
-
+apt-get -y install --no-install-recommends software-properties-common
+add-apt-repository -y ppa:vbernat/haproxy-2.4
 
 # Install HAProxy
 apt-get -y install haproxy
