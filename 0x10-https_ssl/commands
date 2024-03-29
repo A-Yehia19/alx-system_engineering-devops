@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# configure HTTPS on the server
+
+apt update
+apt install snapd
+apt-get remove certbot
+apt-get install certbot
+service haproxy stop
+certbot certonly --standalone --preferred-challenges http --http-01-port 80 -d www.abdullahyehia.tech 
+ls /etc/letsencrypt/live/www.abdullahyehia.tech
+mkdir -p /etc/haproxy/certs
+DOMAIN='www.abdullahyehia.tech' sudo -E bash -c 'cat /etc/letsencrypt/live/$DOMAIN/fullchain.pem /etc/letsencrypt/live/$DOMAIN/privkey.pem > /etc/haproxy/certs/$DOMAIN.pem'
+chmod -R go-rwx /etc/haproxy/certs
+nano /etc/haproxy/haproxy.cfg
+service haproxy start
