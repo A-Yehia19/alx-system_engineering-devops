@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# install mysql
+
+# make signaturekey file into the server and name it "signature.key"
+apt-key add signature.key
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys B7B3B788A8D3785C
+sh -c 'echo "deb http://repo.mysql.com/apt/ubuntu bionic mysql-5.7" >> /etc/apt/sources.list.d/mysql.list'
+apt-get update
+apt-cache policy mysql-server
+apt install -f -y mysql-client=5.7* mysql-community-server=5.7* mysql-server=5.7*
