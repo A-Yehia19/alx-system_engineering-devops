@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 # Nginx must be running, and listening on port 80
-sudo sed -i "s/8080/80/" /etc/nginx/sites-enabled/default
-sudo service nginx restart
-kill -9 "$(cat /var/run/nginx.pid)"
+cd /etc/nginx/sites-enabled/ || exit;
+rm default;
+# Create symbolic link to the deafult file in sites-available
+ln -s /etc/nginx/sites-available/default default;
+# Restart Nginx
+service nginx restart;
+
