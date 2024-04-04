@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 '''gather data from API'''
 
+import json
 import requests
 import sys
-import json
 
 REST_API = "https://jsonplaceholder.typicode.com"
 
