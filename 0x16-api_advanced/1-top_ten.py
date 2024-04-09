@@ -9,7 +9,7 @@ def top_ten(subreddit):
     url = "https://www.reddit.com/r/{}/hot/.json?limit=10".format(subreddit)
     headers = {"User-Agent": "Mozilla/5.0"}
 
-    response = requests.get(url, headers=headers)
+    response = requests.get(url, headers=headers, allow_redirects=False)
 
     try:
         for post in response.get('data').get('children'):
