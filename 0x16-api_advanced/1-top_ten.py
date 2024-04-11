@@ -11,8 +11,8 @@ def top_ten(subreddit):
 
     response = requests.get(url, headers=headers, allow_redirects=False)
 
-    try:
+    if response.status_code != 200:
         for post in response.get('data').get('children'):
             print(post.get('data').get('title'))
-    except Exception:
+    else:
         print(None)
